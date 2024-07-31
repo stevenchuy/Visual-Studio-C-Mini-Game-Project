@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>MultiLevel_Game_Project_V._3</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="if exist &quot;$(TargetPath).locked&quot; del &quot;$(TargetPath).locked&quot;&#xD;&#xA;if exist &quot;$(TargetPath)&quot; if not exist &quot;$(TargetPath).locked&quot; move &quot;$(TargetPath)&quot; &quot;$(TargetPath).locked&quot;" />
+  </Target>
+
+</Project>
